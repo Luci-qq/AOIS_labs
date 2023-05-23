@@ -4,11 +4,8 @@ from lab3 import *
 ##Test formulas
 #(a*b)+(!a*(c+b))
 #!((a+c)*(!(b*c)))
-
-def clear_console():
-     os.system('clear')
-     os.system('cls')
-
+#* - conjuction
+#+ - disjuction
 
 if __name__ == '__main__':
      formula = input("Formula:")
@@ -26,7 +23,6 @@ if __name__ == '__main__':
      else:
           form = clf.get_log_sknf()
           form_print="Sknf: "     
-     clear_console()
      form_print+=form
      print(f"Inputed formula: {formula}\n{form_print}")
      expression = log_formula_parse(form)
@@ -38,20 +34,20 @@ if __name__ == '__main__':
           print_knf(intermediate)
      intermediate = gluing_sec_stage(intermediate)
      intermediate = repeat_check(intermediate)
-     print("2:")
-     if expression[1]:
-          print_dnf(intermediate)
-     else:
-          print_knf(intermediate)
+     # print("2:")
+     # if expression[1]:
+     #      print_dnf(intermediate)
+     # else:
+     #      print_knf(intermediate)
      res = gluing_third_stage(intermediate)
      res = repeat_check(res)
      intermediate = res.copy()
-     print("3:")
-     if expression[1]:
-          print_dnf(res)
-     else:
-          print_knf(res)
-     print("Result:\n", end="")
+     # print("3:")
+     # if expression[1]:
+     #      print_dnf(res)
+     # else:
+     #      print_knf(res)
+     print("Minimized result:\n", end="")
      extra = find_excess(expression[0], res.copy())
      res = extra_check(res.copy(), extra[0])
      if expression[1]:

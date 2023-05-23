@@ -19,7 +19,7 @@ class Converting_logical_functions:
         table_result = "Truth table:\n"
         table_result += " a   b   c   |   f\n"
         table_result += "-------------------\n"
-        for i in range(8):
+        for i in range(self.const_num_of_solutions):
             table_result += " {}   {}   {}   |   {}\n".format(int(self.const_a[i]), int(self.const_b[i]), int(self.const_c[i]), int(self.log_function[i]))
         table_result+="\n"
         return table_result

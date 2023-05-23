@@ -29,7 +29,7 @@ def gluing(original):
             result.append(original[i])
     return result
 
-def get_position(symbol):
+def get_pos(symbol):
     for i in range(length):
         if symbol == dict[i]:
             return i
@@ -51,28 +51,28 @@ def gluing_sec_stage(original):
             continue
         for j in range(i + 1, len(original)):
             if original[i][0] == original[j][0]:
-                if abs(get_position(original[i][1]) - get_position(original[j][1])) == 3:
+                if abs(get_pos(original[i][1]) - get_pos(original[j][1])) == 3:
                     part_of_result.append(original[j][0])
                     result.append(part_of_result.copy())
                     part_of_result.clear()
                     fits = True
                     met.append(j)
             if original[i][0] == original[j][1]:
-                if abs(get_position(original[i][1]) - get_position(original[j][0])) == 3:
+                if abs(get_pos(original[i][1]) - get_pos(original[j][0])) == 3:
                     part_of_result.append(original[j][1])
                     result.append(part_of_result.copy())
                     part_of_result.clear()
                     fits = True
                     met.append(j)
             if original[i][1] == original[j][0]:
-                if abs(get_position(original[i][0]) - get_position(original[j][1])) == 3:
+                if abs(get_pos(original[i][0]) - get_pos(original[j][1])) == 3:
                     part_of_result.append(original[j][0])
                     result.append(part_of_result.copy())
                     part_of_result.clear()
                     fits = True
                     met.append(j)
             if original[i][1] == original[j][1]:
-                if abs(get_position(original[i][0]) - get_position(original[j][0])) == 3:
+                if abs(get_pos(original[i][0]) - get_pos(original[j][0])) == 3:
                     part_of_result.append(original[j][1])
                     result.append(part_of_result.copy())
                     part_of_result.clear()
@@ -114,10 +114,10 @@ def gluing_third_stage(original):
         if len(original[i]) > 1:
             for j in range(len(original)):
                 if len(original[j]) == 1:
-                    if abs(get_position(original[i][0]) - get_position(original[j][0])) == 3:
+                    if abs(get_pos(original[i][0]) - get_pos(original[j][0])) == 3:
                         extra.append(original[i])
                         part_of_result.append(original[i][1])
-                    elif abs(get_position(original[i][1]) - get_position(original[j][0])) == 3:
+                    elif abs(get_pos(original[i][1]) - get_pos(original[j][0])) == 3:
                         extra.append(original[i])
                         part_of_result.append(original[i][0])
                     else:
